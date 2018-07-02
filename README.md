@@ -2,6 +2,8 @@
 
 In keeping with the idea that data should represent your layout, this simple library will help you calculate your pagination navigation view.
 
+![demo](http://cdn.kyleparisi.com.s3-website-us-east-1.amazonaws.com/2018-07-02%2014_19_22.gif)
+
 ## Usage
 
 ```javascript
