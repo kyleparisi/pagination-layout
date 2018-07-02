@@ -7,7 +7,7 @@
     module.exports = factory();
   } else {
     // Browser globals (Note: root is window)
-    root.returnExports = factory();
+    root.paginationLayout = factory();
   }
 }(this, function () {
   // Methods
@@ -78,10 +78,8 @@
     return output;
   }
 
-  // Exposed public methods
-  return {
-    paginationLayout
-  }
+  return paginationLayout
+
 }));
 
 
