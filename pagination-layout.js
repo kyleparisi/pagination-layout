@@ -20,6 +20,16 @@
     if (!pages || !pages.length) {
       return false;
     }
+
+    // default pages when we only have <= 4 pages
+    if ([1, 2, 3, 4].indexOf(pages.length) !== -1) {
+      const defaultView = [];
+      for (let i = 1; i <= pages.length; i++) {
+        defaultView.push(i);
+      }
+      return defaultView;
+    }
+
     currentPage = currentPage || 1;
 
     const boundary = 3;
@@ -46,8 +56,8 @@
       output.push(i);
     }
 
-    // when at highest current page, count down boundary amount.
-    if (pages.length > boundary && currentPage === pages.length) {
+    // if we do not fill the boundary count, count down from current page
+    if (output.length < boundary) {
       for (let i = currentPage - 1; i > pages.length - boundary; i--) {
         output.unshift(i);
       }
@@ -66,11 +76,6 @@
     ) {
       output.unshift(1, "...");
       return output;
-    }
-
-    // default to 4 pages when we only have 4
-    if (pages.length === 4) {
-      return [1, 2, 3, 4];
     }
 
     // done if the final page is in view

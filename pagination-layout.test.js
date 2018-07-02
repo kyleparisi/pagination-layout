@@ -69,6 +69,12 @@ output = paginationLayout([[], [], [], [], [], [], []], 7);
 expect = [1, "...", 5, 6, 7];
 assert(isEqual(output, expect), "Should return", expect, output);
 
+
+log("It returns 1 ... 5 6 7 pages.");
+output = paginationLayout([[], [], [], [], [], [], []], 6);
+expect = [1, "...", 5, 6, 7];
+assert(isEqual(output, expect), "Should return", expect, output);
+
 log("It returns 1 ... 5 6 7 pages when page 8 is selected.");
 output = paginationLayout([[], [], [], [], [], [], []], 8);
 expect = [1, "...", 5, 6, 7];
