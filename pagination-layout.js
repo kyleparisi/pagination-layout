@@ -1,15 +1,15 @@
-(function (root, factory) {
-  if (typeof define === 'function' && define.amd) {
+(function(root, factory) {
+  if (typeof define === "function" && define.amd) {
     // AMD
     define([], factory);
-  } else if (typeof exports === 'object') {
+  } else if (typeof exports === "object") {
     // CommonJS
     module.exports = factory();
   } else {
     // Browser globals (Note: root is window)
     root.paginationLayout = factory();
   }
-}(this, function () {
+})(this, function() {
   // Methods
   function paginationLayout(pages, currentPage) {
     function last(array) {
@@ -25,7 +25,9 @@
     const boundary = 3;
 
     if (currentPage > pages.length) {
-      console.warn("Page selection out of bounds.  Picking array length as current page.");
+      console.warn(
+        "Page selection out of bounds.  Picking array length as current page."
+      );
       currentPage = pages.length;
     }
 
@@ -51,12 +53,12 @@
       }
     }
 
-    // attach last page to nav
+    // attach last page to nav when only 1 away
     if (pages.length - last(output) === 1) {
       output.push(pages.length);
     }
 
-    // put lowest page
+    // put lowest page and ... when we exceed the boundary of 4
     if (
       pages.length === last(output) &&
       pages.length > boundary &&
@@ -64,6 +66,11 @@
     ) {
       output.unshift(1, "...");
       return output;
+    }
+
+    // default to 4 pages when we only have 4
+    if (pages.length === 4) {
+      return [1, 2, 3, 4];
     }
 
     // done if the final page is in view
@@ -78,8 +85,5 @@
     return output;
   }
 
-  return paginationLayout
-
-}));
-
-
+  return paginationLayout;
+});
