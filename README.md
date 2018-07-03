@@ -8,6 +8,14 @@ In keeping with the idea that data should represent your layout, this simple lib
 
 [![npm version](https://badge.fury.io/js/pagination-layout.svg)](https://badge.fury.io/js/pagination-layout)
 
+or
+
+```html
+<script src="https://unpkg.com/pagination-layout@1.0.1/pagination-layout.js"></script>
+<!-- prod -->
+<script src="https://unpkg.com/pagination-layout@1.0.1/pagination-layout.min.js"></script>
+```
+
 ```javascript
 const pages = [ [], [], [], [], [] ];
 paginationLayout(pages);
