@@ -6,6 +6,8 @@ In keeping with the idea that data should represent your layout, this simple lib
 
 ## Usage
 
+[![npm version](https://badge.fury.io/js/pagination-layout.svg)](https://badge.fury.io/js/pagination-layout)
+
 ```javascript
 const pages = [ [], [], [], [], [] ];
 paginationLayout(pages);
