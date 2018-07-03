@@ -1,8 +1,9 @@
 {
   "name": "pagination-layout",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A simple pagination layout calculator",
   "main": "pagination-layout.js",
+  "browser": "pagination-layout.min.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
