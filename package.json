@@ -1,0 +1,22 @@
+{
+  "name": "pagination-layout",
+  "version": "1.0.0",
+  "description": "A simple pagination layout calculator",
+  "main": "pagination-layout.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kyleparisi/pagination-layout.git"
+  },
+  "keywords": [
+    "pagination"
+  ],
+  "author": "Kyle Parisi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kyleparisi/pagination-layout/issues"
+  },
+  "homepage": "https://github.com/kyleparisi/pagination-layout#readme"
+}
