@@ -37,8 +37,9 @@
 
     // if current page is sufficiently in the middle, boundary is +1 and -1
     if (
-      pages.length - currentPage >= 3 ||
-      pages.length - currentPage === 1
+      currentPage > 3 &&
+      (pages.length - currentPage >= 3 ||
+      pages.length - currentPage === 1)
     ) {
       boundaryMiddle = true;
     }
@@ -89,12 +90,38 @@
       output.unshift(1);
     }
 
+    // attach first page to when only 2 away
+    if (currentPage === 3) {
+      output.unshift(2);
+      output.unshift(1);
+    }
+
     // put lowest page and ... when we exceed the boundary
     if (
+      currentPage > 3 &&
       pages.length > boundary &&
       pages.length > 7
     ) {
       output.unshift(1, "...");
+    }
+
+    if (output.length < 7) {
+      let need = 7 - output.length;
+      // should count down
+      if (pages.length === last(output)) {
+        for (let i = 1; i <= need; i++) {
+          output.splice(2, 0, output[2] - 1);
+        }
+      }
+      // should count up
+      else if (!boundaryMiddle) {
+        // remove "...", [last page]
+        need = need - 2;
+        for (let i = 1; i <= need; i++) {
+          output.push(last(output) + 1);
+        }
+      }
+
     }
 
     // done if the final page is in view

@@ -115,7 +115,27 @@ output = paginationLayout([[], [], [], [], [], [], [], []], 5);
 expect = [1, "...", 4, 5, 6, "...", 8];
 assert(isEqual(output, expect), "Should return", expect, output);
 
-log("It returns 1 ... 6 7 8 pages when page 7 is selected.");
+log("It returns 1 ... 4 5 6 7 8 pages when page 7 is selected.");
 output = paginationLayout([[], [], [], [], [], [], [], []], 7);
-expect = [1, "...", 6, 7, 8];
+expect = [1, "...", 4, 5, 6, 7, 8];
+assert(isEqual(output, expect), "Should return", expect, output);
+
+log("It returns 1 ... 4 5 6 7 8 pages when page 8 is selected.");
+output = paginationLayout([[], [], [], [], [], [], [], []], 8);
+expect = [1, "...", 4, 5, 6, 7, 8];
+assert(isEqual(output, expect), "Should return", expect, output);
+
+log("It returns 1 2 3 4 5 ... 8 pages when page 1 is selected.");
+output = paginationLayout([[], [], [], [], [], [], [], []], 1);
+expect = [1, 2, 3, 4, 5, "...", 8];
+assert(isEqual(output, expect), "Should return", expect, output);
+
+log("It returns 1 2 3 4 5 ... 8 pages when page 2 is selected.");
+output = paginationLayout([[], [], [], [], [], [], [], []], 2);
+expect = [1, 2, 3, 4, 5, "...", 8];
+assert(isEqual(output, expect), "Should return", expect, output);
+
+log("It returns 1 2 3 4 5 ... 8 pages when page 3 is selected.");
+output = paginationLayout([[], [], [], [], [], [], [], []], 3);
+expect = [1, 2, 3, 4, 5, "...", 8];
 assert(isEqual(output, expect), "Should return", expect, output);
