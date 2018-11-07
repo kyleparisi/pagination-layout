@@ -11,9 +11,9 @@ In keeping with the idea that data should represent your layout, this simple lib
 or
 
 ```html
-<script src="https://unpkg.com/pagination-layout@1.0.4/pagination-layout.js"></script>
+<script src="https://unpkg.com/pagination-layout@1.0.5/pagination-layout.js"></script>
 <!-- prod -->
-<script src="https://unpkg.com/pagination-layout@1.0.4/pagination-layout.min.js"></script>
+<script src="https://unpkg.com/pagination-layout@1.0.5/pagination-layout.min.js"></script>
 ```
 
 ```javascript
