@@ -22,7 +22,7 @@
     }
 
     // default pages when we only have <= 4 pages
-    if ([1, 2, 3, 4].indexOf(pages.length) !== -1) {
+    if ([1, 2, 3, 4, 5, 6, 7].indexOf(pages.length) !== -1) {
       const defaultView = [];
       for (let i = 1; i <= pages.length; i++) {
         defaultView.push(i);
@@ -32,7 +32,16 @@
 
     currentPage = currentPage || 1;
 
-    const boundary = 3;
+    const boundary = 2;
+    let boundaryMiddle = false;
+
+    // if current page is sufficiently in the middle, boundary is +1 and -1
+    if (
+      pages.length - currentPage >= 3 ||
+      pages.length - currentPage === 1
+    ) {
+      boundaryMiddle = true;
+    }
 
     if (currentPage > pages.length) {
       console.warn(
@@ -48,19 +57,26 @@
 
     const output = [];
 
-    // count up to boundary amount from current page
-    for (let i = currentPage; i <= pages.length; i++) {
-      if (output.length === boundary) {
-        break;
+    if (!boundaryMiddle) {
+      // count up to boundary amount from current page
+      for (let i = currentPage; i <= pages.length; i++) {
+        if (output.length === boundary) {
+          break;
+        }
+        output.push(i);
       }
-      output.push(i);
-    }
 
-    // if we do not fill the boundary count, count down from current page
-    if (output.length < boundary) {
-      for (let i = currentPage - 1; i > pages.length - boundary; i--) {
-        output.unshift(i);
+      // if we do not fill the boundary count, count down from current page
+      if (output.length < boundary) {
+        for (let i = currentPage - 1; i > pages.length - boundary; i--) {
+          output.unshift(i);
+        }
       }
+    } else {
+      // count up 1 and down 1 from current page
+      output.push(currentPage - 1);
+      output.push(currentPage);
+      output.push(currentPage + 1);
     }
 
     // attach last page to nav when only 1 away
@@ -68,14 +84,17 @@
       output.push(pages.length);
     }
 
-    // put lowest page and ... when we exceed the boundary of 4
+    // attach first page to when only 1 away
+    if (output[0] === 2) {
+      output.unshift(1);
+    }
+
+    // put lowest page and ... when we exceed the boundary
     if (
-      pages.length === last(output) &&
       pages.length > boundary &&
-      pages.length > 4
+      pages.length > 7
     ) {
       output.unshift(1, "...");
-      return output;
     }
 
     // done if the final page is in view
