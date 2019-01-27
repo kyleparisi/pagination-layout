@@ -4,6 +4,8 @@ In keeping with the idea that data should represent your layout, this simple lib
 
 ![demo](https://s3.amazonaws.com/cdn.kyleparisi.com/pagination-calculation.gif)
 
+![network](/network.png)
+
 ## Usage
 
 [![npm version](https://badge.fury.io/js/pagination-layout.svg)](https://badge.fury.io/js/pagination-layout)
