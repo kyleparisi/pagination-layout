@@ -54,5 +54,6 @@ uglifyjs pagination-layout-be.js > pagination-layout-be.min.js
 ## Publish
 
 ```bash
+# change package.json version then:
 npm publish
 ```
