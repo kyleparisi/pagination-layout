@@ -29,10 +29,26 @@ paginationLayout(pages, currentPage);
 // => [1, "...", 3, 4, 5, "...", 8]
 ```
 
+Or if you are using the `-be` version:
+
+```javascript
+const totalItems = 500
+const itemsPerPage = 100
+paginationLayout(totalItems, itemsPerPage);
+// => [1, 2, 3, 4, 5]
+
+const totalItems = 800;
+const itemsPerPage = 100;
+const currentPage = 4;
+paginationLayout(totalItems, itemsPerPage, currentPage);
+// => [1, "...", 3, 4, 5, "...", 8]
+```
+
 ## Build
 
 ```bash
 uglifyjs pagination-layout.js > pagination-layout.min.js
+uglifyjs pagination-layout-be.js > pagination-layout-be.min.js
 ```
 
 ## Publish
